@@ -1,0 +1,26 @@
+.signup-profileImg-label {
+  margin: 5px 0 20px 0;
+  font-weight: bold;
+  font-size: 13px;
+  color: #0095f6;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.form-signup input[type="file"] {
+  display: none;
+}
+.OOTDWrite-input-file {
+  margin-top: 10px;
+  padding: 6px 15px;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.label {
+  height: 100%;
+  margin: 0 auto 0 auto;
+}
