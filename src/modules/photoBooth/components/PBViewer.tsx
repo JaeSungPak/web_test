@@ -98,6 +98,9 @@ function Viewer() {
       selectedImage.current === test_image ? 13000 : 10000
     );
 
+    const imgixParameters = "w=800&fit=max&auto=format,compress";
+    const src = test_loading + "?a=" + Math.random();
+
     return (
       <>
         <div
@@ -107,7 +110,7 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <img src={test_loading} style={{ width: "100%", zIndex: "-1" }} />
+          <img src={src} style={{ width: "100%", zIndex: "-1" }} />
         </div>
         <input
           type="button"
@@ -183,6 +186,12 @@ function Viewer() {
             color: "black",
           }}
           onClick={() => {
+            setTimeout(
+              () => {
+                setPage("DONE");
+              },
+              selectedImage.current === test_image ? 13000 : 10000
+            );
             setPage("WAITING");
           }}
         />

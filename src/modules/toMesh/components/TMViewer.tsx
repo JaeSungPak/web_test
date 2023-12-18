@@ -72,6 +72,7 @@ function Viewer() {
     setTimeout(() => {
       setPage("DONE");
     }, 15000);
+    const src = test_loading + "?a=" + Math.random();
 
     return (
       <>
@@ -82,7 +83,7 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <img src={test_loading} style={{ width: "100%", zIndex: "-1" }} />
+          <img src={src} style={{ width: "100%", zIndex: "-1" }} />
         </div>
         <input
           type="button"
