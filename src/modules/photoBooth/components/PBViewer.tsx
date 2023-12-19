@@ -107,7 +107,7 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <video muted autoPlay loop style={{ width: "100%", zIndex: "-1" }}>
+          <video muted autoPlay style={{ width: "100%", zIndex: "-1" }}>
             <source src={test_loading} type="video/mp4" />
           </video>
         </div>
