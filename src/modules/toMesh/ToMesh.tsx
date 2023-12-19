@@ -9,7 +9,9 @@ const ToMesh = () => {
     <>
       <Header></Header>
       <BrowserView>
-        <h1 style={{ color: "white" }}>Coming Soon</h1>
+        <h1>
+          <Desktop_Title />
+        </h1>
       </BrowserView>
       <MobileOnlyView>
         <h1>

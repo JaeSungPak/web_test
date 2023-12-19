@@ -15,25 +15,14 @@ function Desktop_Booth() {
     const nowImageURLList: string[] = [];
 
     for (let i = 0; i < nowSelectImageList.length; i += 1) {
-      const nowSelectImageList = e.target.files;
-      const nowImageURLList: string[] = [];
+      const nowImageUrl = URL.createObjectURL(nowSelectImageList[i]);
 
-      for (let i = 0; i < nowSelectImageList.length; i += 1) {
-        const name_ = nowSelectImageList[i].name;
-        var reg = /(.*?)\.(jpg|jpeg|png)$/;
+      var _lastDot = nowImageUrl.lastIndexOf(".");
+      var _fileExt = nowImageUrl
+        .substring(_lastDot, nowImageUrl.length)
+        .toLowerCase();
 
-        if (name_.match(reg)) {
-          const nowImageUrl = URL.createObjectURL(nowSelectImageList[i]);
-          nowImageURLList.push(nowImageUrl);
-        } else {
-          alert("지원하지 않는 이미지 파일입니다.");
-        }
-      }
-
-      if (nowImageURLList.length > 0) {
-        setMyImage(nowImageURLList);
-        setPage("SELECTED");
-      }
+      nowImageURLList.push(nowImageUrl);
     }
 
     setMyImage(nowImageURLList);
@@ -45,7 +34,7 @@ function Desktop_Booth() {
     setPage("SELECTION");
   };
 
-  const selection = () => (
+  const selection = (
     <>
       <div
         style={{

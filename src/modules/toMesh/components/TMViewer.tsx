@@ -44,7 +44,7 @@ function Viewer() {
             color: "black",
           }}
           onClick={() => {
-            alert("미구현 페이지");
+            alert("미등록 페이지");
           }}
         />
         <input
@@ -62,7 +62,7 @@ function Viewer() {
             color: "black",
           }}
           onClick={() => {
-            alert("미구현 기능");
+            alert("모델 다운로드");
           }}
         />
       </>
