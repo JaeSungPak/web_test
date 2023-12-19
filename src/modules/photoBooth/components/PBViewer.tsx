@@ -8,6 +8,7 @@ import selection_0 from "../../../assets/images/test_images/selection_0.png";
 import selection_1 from "../../../assets/images/test_images/selection_1.png";
 import selection_2 from "../../../assets/images/test_images/selection_2.png";
 import selection_3 from "../../../assets/images/test_images/selection_3.png";
+import background from "../../../assets/images/test_images/desert.png";
 
 function requestPermission() {
   console.log("권한 요청 중...");
@@ -83,7 +84,7 @@ function Viewer() {
             color: "black",
           }}
           onClick={() => {
-            alert("3D 공간 상에서 모델을 컨트롤 할 수 있는 페이지 (미구현)");
+            setPage("ANIM");
           }}
         />
       </>
@@ -234,12 +235,108 @@ function Viewer() {
     );
   }
 
+  function AnimViewer() {
+    return (
+      <>
+        <img
+          src={background}
+          style={{ width: "100%", zIndex: "-2", position: "absolute" }}
+        />
+        <img
+          src={selectedImage.current}
+          style={{
+            width: "100%",
+            zIndex: "-1",
+            position: "absolute",
+            marginTop: "30%",
+          }}
+        />
+        <input
+          type="button"
+          value={"Jump"}
+          style={{
+            width: "45%",
+            height: 70,
+            position: "fixed",
+            bottom: 0,
+            margin: "3%",
+            borderRadius: 30,
+            backgroundColor: "yellowgreen",
+            fontSize: 24,
+            color: "black",
+          }}
+          onClick={() => {
+            alert("Jump Animation!");
+          }}
+        />
+        <input
+          type="button"
+          value={"Hello"}
+          style={{
+            width: "45%",
+            height: 70,
+            position: "fixed",
+            bottom: 75,
+            margin: "3%",
+            borderRadius: 30,
+            backgroundColor: "yellowgreen",
+            fontSize: 24,
+            color: "black",
+          }}
+          onClick={() => {
+            alert("Hello Animation!");
+          }}
+        />
+        <input
+          type="button"
+          value={"???"}
+          style={{
+            width: "45%",
+            height: 140,
+            position: "fixed",
+            bottom: 0,
+            margin: "3%",
+            marginRight: 0,
+            right: "3%",
+            borderRadius: 30,
+            backgroundColor: "yellowgreen",
+            fontSize: 24,
+            color: "black",
+          }}
+          onClick={() => {
+            alert("Some Animation!");
+          }}
+        />
+        <input
+          type="button"
+          value={"Home"}
+          style={{
+            width: "30%",
+            height: 70,
+            position: "fixed",
+            top: 80,
+            margin: "3%",
+            marginRight: 0,
+            borderRadius: 30,
+            backgroundColor: "yellowgreen",
+            fontSize: 24,
+            color: "black",
+          }}
+          onClick={() => {
+            setPage("DONE");
+          }}
+        />
+      </>
+    );
+  }
+
   return (
     <div>
       {page === "WAITING" ? <Waiting /> : <></>}
       {page === "DONE" ? <MeshViewer /> : <></>}
       {page === "QR" ? <QRRequest /> : <></>}
       {page === "SELECT" ? <Select /> : <></>}
+      {page === "ANIM" ? <AnimViewer /> : <></>}
     </div>
   );
 }
