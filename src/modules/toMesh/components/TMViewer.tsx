@@ -1,7 +1,7 @@
 import { Description, Title } from "modules/toMesh/components/TMComponents";
 import { useState } from "react";
 import test_image from "../../../assets/images/test_images/Mesh.png";
-import test_loading from "../../../assets/images/test_images/Loading.gif";
+import test_loading from "../../../assets/images/test_images/Loading.mp4";
 
 function Viewer() {
   const [page, setPage] = useState("WAITING");
@@ -72,7 +72,6 @@ function Viewer() {
     setTimeout(() => {
       setPage("DONE");
     }, 15000);
-    const src = test_loading + "?a=" + Math.random();
 
     return (
       <>
@@ -83,7 +82,9 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <img src={src} style={{ width: "100%", zIndex: "-1" }} />
+          <video muted autoPlay loop style={{ width: "100%", zIndex: "-1" }}>
+            <source src={test_loading} type="video/mp4" />
+          </video>
         </div>
         <input
           type="button"

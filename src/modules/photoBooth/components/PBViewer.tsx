@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { Description, Title } from "modules/photoBooth/components/PBComponents";
 
 import test_image from "../../../assets/images/test_images/Mesh.png";
-import test_loading from "../../../assets/images/test_images/Loading.gif";
+import test_loading from "../../../assets/images/test_images/Loading.mp4";
 import test_qr from "../../../assets/images/test_images/QR.jpeg";
 import selection_0 from "../../../assets/images/test_images/selection_0.png";
 import selection_1 from "../../../assets/images/test_images/selection_1.png";
@@ -98,9 +98,6 @@ function Viewer() {
       selectedImage.current === test_image ? 13000 : 10000
     );
 
-    const imgixParameters = "w=800&fit=max&auto=format,compress";
-    const src = test_loading + "?a=" + Math.random();
-
     return (
       <>
         <div
@@ -110,7 +107,9 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <img src={src} style={{ width: "100%", zIndex: "-1" }} />
+          <video muted autoPlay loop style={{ width: "100%", zIndex: "-1" }}>
+            <source src={test_loading} type="video/mp4" />
+          </video>
         </div>
         <input
           type="button"
@@ -186,12 +185,6 @@ function Viewer() {
             color: "black",
           }}
           onClick={() => {
-            setTimeout(
-              () => {
-                setPage("DONE");
-              },
-              selectedImage.current === test_image ? 13000 : 10000
-            );
             setPage("WAITING");
           }}
         />

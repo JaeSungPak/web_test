@@ -89,7 +89,7 @@ function Desktop_Booth() {
             multiple={false}
             id="input-file"
             style={{ display: "none" }}
-            accept="image/*"
+            accept=".jpg, .jpeg, .png"
           />
         </label>
       </div>

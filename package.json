@@ -35,7 +35,9 @@
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@types/socket.io-client": "^3.0.0",
-    "@types/uuid": "^9.0.7"
+    "@types/uuid": "^9.0.7",
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
