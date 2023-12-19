@@ -130,11 +130,6 @@ function Viewer() {
             color: "black",
           }}
           onClick={() => {
-            var id = window.setTimeout(function () {}, 0);
-
-            while (id--) {
-              window.clearTimeout(id);
-            }
             if (readWait.current === "DEFAULT") {
               readWait.current = "READ";
               setPage("QR");
