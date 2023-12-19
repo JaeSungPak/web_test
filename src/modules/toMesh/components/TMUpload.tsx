@@ -15,18 +15,21 @@ function Desktop_Booth() {
     const nowImageURLList: string[] = [];
 
     for (let i = 0; i < nowSelectImageList.length; i += 1) {
-      const nowImageUrl = URL.createObjectURL(nowSelectImageList[i]);
+      const name_ = nowSelectImageList[i].name;
+      var reg = /(.*?)\.(jpg|jpeg|png)$/;
 
-      var _lastDot = nowImageUrl.lastIndexOf(".");
-      var _fileExt = nowImageUrl
-        .substring(_lastDot, nowImageUrl.length)
-        .toLowerCase();
-
-      nowImageURLList.push(nowImageUrl);
+      if (name_.match(reg)) {
+        const nowImageUrl = URL.createObjectURL(nowSelectImageList[i]);
+        nowImageURLList.push(nowImageUrl);
+      } else {
+        alert("지원하지 않는 이미지 파일입니다.");
+      }
     }
 
-    setMyImage(nowImageURLList);
-    setPage("SELECTED");
+    if (nowImageURLList.length > 0) {
+      setMyImage(nowImageURLList);
+      setPage("SELECTED");
+    }
   };
 
   const handleDeleteImage = (id: number) => {
