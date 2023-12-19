@@ -69,10 +69,6 @@ function Viewer() {
     );
   }
   function Waiting() {
-    setTimeout(() => {
-      setPage("DONE");
-    }, 15000);
-
     return (
       <>
         <div
@@ -82,7 +78,14 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <video muted autoPlay style={{ width: "100%", zIndex: "-1" }}>
+          <video
+            muted
+            autoPlay
+            style={{ width: "100%", zIndex: "-1" }}
+            onEnded={() => {
+              setPage("DONE");
+            }}
+          >
             <source src={test_loading} type="video/mp4" />
           </video>
         </div>

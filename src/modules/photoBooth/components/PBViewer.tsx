@@ -91,13 +91,6 @@ function Viewer() {
   }
 
   function Waiting() {
-    setTimeout(
-      () => {
-        setPage("DONE");
-      },
-      selectedImage.current === test_image ? 13000 : 10000
-    );
-
     return (
       <>
         <div
@@ -107,7 +100,14 @@ function Viewer() {
             marginTop: "-45%",
           }}
         >
-          <video muted autoPlay style={{ width: "100%", zIndex: "-1" }}>
+          <video
+            muted
+            autoPlay
+            style={{ width: "100%", zIndex: "-1" }}
+            onEnded={() => {
+              setPage("DONE");
+            }}
+          >
             <source src={test_loading} type="video/mp4" />
           </video>
         </div>
